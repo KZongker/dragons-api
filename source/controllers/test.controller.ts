@@ -1,0 +1,9 @@
+import { Request, Response, NextFunction } from 'express';
+import axios, { AxiosResponse } from 'axios';
+
+export default class TestController {
+    static testFunction = async (req: Request, res: Response, next: NextFunction) => {
+        let result: AxiosResponse = await axios.get('https://jsonplaceholder.typicode.com/todos/1')
+        return res.send(result.data);
+    }
+};
