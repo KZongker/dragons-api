@@ -1,0 +1,22 @@
+{
+  "name": "dragons-api",
+  "version": "1.0.0",
+  "description": "Node api for dragon data fetching practice",
+  "main": "source/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon source/server.ts",
+    "build": "rm -rf build/ && prettier --write source/ && tsc"
+  },
+  "author": "Katrina Zongker",
+  "license": "MIT",
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^5.0.0",
+    "axios": "^1.7.7",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  }
+}
