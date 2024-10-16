@@ -1,7 +1,15 @@
 import { BaseHttpController } from "inversify-express-utils";
 import express from "express";
+import { Repos } from "../repos/Repos";
 
 export class BaseController extends BaseHttpController {
+
+    public repos: Repos;
+
+    constructor() {
+        super();
+        this.repos = Repos.getCurrent();
+    }
 
     public error(errors: string[]) {
         return this.json({ errors }, 500);
