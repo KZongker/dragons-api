@@ -26,10 +26,11 @@
     "inversify": "^6.0.2",
     "inversify-express-utils": "^6.4.6",
     "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
     "nodemon": "^3.1.7",
+    "reflect-metadata": "^0.2.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.3",
-    "reflect-metadata": "^0.2.2"
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
