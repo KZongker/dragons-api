@@ -5,7 +5,7 @@ export class HumanRepo {
         return DB.query("SELECT * FROM humans", []);
     };
 
-    loadSpecific = () => {
-        return DB.query("SELECT * FROM humans WHERE human_id LIKE 1", []);
+    loadSpecific = (id: number) => {
+        return DB.queryOne("SELECT * FROM humans WHERE human_id = ?", [id]);
     };
 }

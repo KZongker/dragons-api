@@ -1,4 +1,4 @@
-import { controller, httpGet, interfaces } from "inversify-express-utils";
+import { controller, httpGet, interfaces, requestParam } from "inversify-express-utils";
 import express from "express";
 import { BaseController } from "./BaseController"
 
@@ -12,10 +12,10 @@ export class HumanController extends BaseController {
         });
     }
 
-    @httpGet("/1")
-    public async getSpecific(req: express.Request, res: express.Response): Promise<interfaces.IHttpActionResult> {
+    @httpGet("/:id")
+    public async getSpecific(@requestParam("id") id: number, req: express.Request, res: express.Response): Promise<interfaces.IHttpActionResult> {
         return this.actionWrapperAnon(req, res, async () => {
-            return this.repos.human.loadSpecific();
+            return this.repos.human.loadSpecific(id);
         });
     }
 }

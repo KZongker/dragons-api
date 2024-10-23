@@ -5,9 +5,9 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch src -e ts,ejs --exec npm run dev:start",
+    "dev": "nodemon --watch source -e ts,ejs --exec npm run dev:start",
     "dev:start": "npm-run-all build startDebug",
-    "dev:watch": "npm run tsc-watch --onSuccess \"node dist/index.js\"",
+    "dev:watch": "npm run tsc-watch --onSuccess \"node build/index.js\"",
     "build": "npm-run-all clean lint tsc",
     "startDebug": "node --inspect=0.0.0.0:9229 .",
     "clean": "rimraf dist",
