@@ -11,4 +11,11 @@ export class HumanController extends BaseController {
             return this.repos.human.loadAll();
         });
     }
+
+    @httpGet("/1")
+    public async getSpecific(req: express.Request, res: express.Response): Promise<interfaces.IHttpActionResult> {
+        return this.actionWrapperAnon(req, res, async () => {
+            return this.repos.human.loadSpecific();
+        });
+    }
 }
