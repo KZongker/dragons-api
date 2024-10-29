@@ -5,7 +5,7 @@ import { Container } from "inversify";
 import { InversifyExpressServer } from "inversify-express-utils";
 import { bindings } from "./inversify.config";
 import express from "express";
-// import cors from "cors"
+import cors from "cors"
 
 export const init = async () => {
     /*
@@ -27,7 +27,7 @@ export const init = async () => {
         // expApp.use()
         expApp.use(bodyParser.urlencoded({ extended: true }));
         expApp.use(bodyParser.json({ limit: "50mb" }));
-        // expApp.use(cors())
+        expApp.use(cors())
     };
 
     const server = app.setConfig(configFunction).build();
