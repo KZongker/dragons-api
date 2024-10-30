@@ -23,7 +23,6 @@ export const init = async () => {
 
 
     const configFunction = (expApp: express.Application) => {
-        // expApp.use(bodyParser({ limit: "50mb" }));
         // expApp.use()
         expApp.use(bodyParser.urlencoded({ extended: true }));
         expApp.use(bodyParser.json({ limit: "50mb" }));

@@ -1,6 +1,7 @@
-import { controller, httpGet, interfaces, requestParam } from "inversify-express-utils";
+import { controller, httpGet, httpPost, interfaces, requestParam } from "inversify-express-utils";
 import express from "express";
 import { BaseController } from "./BaseController"
+import { Human } from "../models/Human";
 
 @controller("/humans")
 export class HumanController extends BaseController {
@@ -18,4 +19,14 @@ export class HumanController extends BaseController {
             return this.repos.human.loadSpecific(id);
         });
     }
+
+    @httpPost("/")
+    public async save(req: express.Request<{}, {}, any>, res: express.Response): Promise<interfaces.IHttpActionResult> {
+        console.log(req.body);
+        return this.actionWrapperAnon(req, res, async () => {
+            console.log(req.body);
+            return this.repos.human.save(req.body);
+        });
+    }
+
 }
