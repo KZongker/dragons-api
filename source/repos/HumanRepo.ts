@@ -24,8 +24,8 @@ export class HumanRepo {
     }
 
     private async update(human: Human) {
-        const sql = "UPDATE `humans` SET firstName=?, middleName=?, lastName=?, dragon=?, age=?, bravery=?, intelligence=?, speed=?, attack=?, defense=?, color=?, image=? WHERE id=? and humanId=?";
-        const params = [human.firstName, human.middleName, human.lastName, human.dragon, human.age, human.bravery, human.intelligence, human.speed, human.attack, human.defense, human.color, human.image];
+        const sql = "UPDATE `humans` SET firstName=?, middleName=?, lastName=?, dragon=?, age=?, bravery=?, intelligence=?, speed=?, attack=?, defense=?, color=?, image=? WHERE humanId=?";
+        const params = [human.firstName, human.middleName, human.lastName, human.dragon, human.age, human.bravery, human.intelligence, human.speed, human.attack, human.defense, human.color, human.image, human.humanId];
         await DB.query(sql, params);
         return human;
     }
