@@ -15,6 +15,11 @@ export class DragonRepo {
         return dragon.dragonId ? this.update(dragon) : this.create(dragon);
     }
 
+    public delete(dragon: Dragon) {
+        console.log('Deleted!')
+        return this.deletion(dragon);
+    }
+
     private async create(dragon: Dragon) {
         const sql = "INSERT INTO `dragons` (name, species, class, rider, fireType, size, speed, attack, defense, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
         const params = [dragon.name, dragon.species, dragon.class, dragon.rider, dragon.fireType, dragon.size, dragon.speed, dragon.attack, dragon.defense, dragon.image];
@@ -28,5 +33,11 @@ export class DragonRepo {
         const params = [dragon.name, dragon.species, dragon.class, dragon.rider, dragon.fireType, dragon.size, dragon.speed, dragon.attack, dragon.defense, dragon.image, dragon.dragonId];
         await DB.query(sql, params);
         return dragon;
+    }
+
+    private async deletion(dragon: Dragon) {
+        const sql = "DELETE FROM `dragons` WHERE dragonId=?";
+        const params = [dragon.dragonId];
+        await DB.query(sql, params);
     }
 }
